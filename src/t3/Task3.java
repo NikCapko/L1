@@ -5,12 +5,14 @@ public class Task3 {
     public void getResult() {
 
         System.out.println("\n Task 3");
-        
+
         int time[] = {341, 273, 278, 329, 445, 402, 388, 275, 243, 334, 412, 393, 299, 343, 317, 265};
         String player[] = {"Elena", "Thomas", "Hamilton", "Suzie", "Phil", "Matt", "Alex",
             "Emma", "John", "James", "Jane", "Emily", "Daniel", "Neda", "Aaron", "Kate"};
-        
-        System.out.println(player[Maraphon.getChempion(time)]);
+
+        int index = Maraphon.getChempion(time);
+
+        System.out.println(player[index]);
 
         /*Player playerArray[] = {
             new Player("Elena", 341),
