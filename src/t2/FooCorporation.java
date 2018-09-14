@@ -1,0 +1,37 @@
+package t2;
+
+public class FooCorporation {
+
+    final static int BASE_RATE = 300;
+    final static int MAX_TIME = 60;
+    final static int BASE_TIME = 40;
+    final static double RATIO = 1.5;
+
+    public static String getSalary(Employee employee) {
+        if (employee.getRate() < BASE_RATE) {
+            return "Минимально разрешенная базовая ставка - 300руб/час";
+        }
+        if (employee.getTime() > MAX_TIME) {
+            return "Работникам запрещено работать больше 60 часов";
+        }
+        if (employee.getTime() > BASE_TIME) {
+            return String.valueOf(BASE_TIME * employee.getRate() + (employee.getTime() - BASE_TIME) * RATIO * employee.getRate());
+        } else {
+            return String.valueOf(BASE_TIME * employee.getRate());
+        }
+    }
+
+    public static String getSalary(int rate, int time) {
+        if (rate < BASE_RATE) {
+            return "Минимально разрешенная базовая ставка - 300руб/час";
+        }
+        if (time > MAX_TIME) {
+            return "Работникам запрещено работать больше 60 часов";
+        }
+        if (time > BASE_TIME) {
+            return String.valueOf(BASE_TIME * rate + (time - BASE_TIME) * RATIO * rate);
+        } else {
+            return String.valueOf(BASE_TIME * rate);
+        }
+    }
+}
