@@ -9,7 +9,7 @@ public class FooCorporation {
 
     public static String getSalary(Employee employee) {
         if (employee.getRate() < BASE_RATE) {
-            return "Минимально разрешенная базовая ставка - 300руб/час";
+            return "Минимально разрешенная базовая ставка - 300 руб/час";
         }
         if (employee.getTime() > MAX_TIME) {
             return "Работникам запрещено работать больше 60 часов";
