@@ -1,4 +1,4 @@
-package task5;
+package t5;
 
 public class Task5 {
     double[] dict = {1.2, 3.8, 1.7, 1.7};
