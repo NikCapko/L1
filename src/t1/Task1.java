@@ -6,7 +6,7 @@ public class Task1 {
 
     double x0 = 8;
     double v0 = 0.9;
-    final double a = 9.8;
+    final static double a = 9.8;
 
     public void getResult() {
 

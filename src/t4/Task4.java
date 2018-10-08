@@ -4,11 +4,15 @@ public class Task4 {
 
     int a = 0;
 
-    public void getResult(){
+    public void getResult() {
         printBit();
 
         System.out.println("Установка бита с номером 13 в 1");
-        stateBit(13);
+        stateBit(13, 1);
+        printBit();
+
+        System.out.println("Установка бита с номером 13 в 0");
+        stateBit(13, 0);
         printBit();
 
         System.out.println("Инвертирование бита с номером 15");
@@ -20,8 +24,11 @@ public class Task4 {
         System.out.println(chekBit(12));
     }
 
-    public void stateBit(int i) {
-        a |= 1 << i;
+    public void stateBit(int i, int flag) {
+
+        if (flag == 1) {
+            a |= 1 << i;
+        } else a &= ~(1 << i);
     }
 
     public boolean chekBit(int i) {
@@ -32,7 +39,7 @@ public class Task4 {
         a ^= 1 << i;
     }
 
-    public void printBit(){
+    public void printBit() {
         System.out.println(String.format("%32s", Integer.toBinaryString(a)).replace(' ', '0'));
     }
 }

@@ -21,6 +21,6 @@ public class Main {
         task3.getResult();
         task4.getResult();
         task5.getResult();
-        task6.getResult();
+        //task6.getResult();
     }
 }

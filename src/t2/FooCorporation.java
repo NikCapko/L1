@@ -2,10 +2,10 @@ package t2;
 
 public class FooCorporation {
 
-    final static int BASE_RATE = 300;
-    final static int MAX_TIME = 60;
-    final static int BASE_TIME = 40;
-    final static double RATIO = 1.5;
+    private final static int BASE_RATE = 300;
+    private final static int MAX_TIME = 60;
+    private final static int BASE_TIME = 40;
+    private final static double RATIO = 1.5;
 
     public static String getSalary(Employee employee) {
         if (employee.getRate() < BASE_RATE) {
