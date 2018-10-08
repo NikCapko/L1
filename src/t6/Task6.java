@@ -17,40 +17,57 @@ public class Task6 {
     };
 
     public void getResult() {
-        findPath(13,8);
+        findPath(13, 8);
     }
 
     private void findPath(int x, int y) {
-        if (isValid(x, y)) {
+        if (isValid(x, y) && isFree(x, y)) {
             if (Character.isDigit(labirint[y].charAt(x))) {
                 System.out.println(labirint[y].charAt(x));
             }
 
-            if (isValid(x + 1, y) && isFree(x + 1, y)) {
-                findPath(x + 1, y);
-            }
-            if (isValid(x + 1, y + 1) && isFree(x + 1, y + 1)) {
-                findPath(x + 1, y + 1);
-            }
-            if (isValid(x + 1, y - 1) && isFree(x + 1, y - 1)) {
-                findPath(x + 1, y - 1);
-            }
-
-            if (isValid(x, y + 1) && isFree(x, y + 1)) {
-                findPath(x, y + 1);
-            }
-            if (isValid(x, y - 1) && isFree(x, y - 1)) {
-                findPath(x, y - 1);
-            }
+            int k = 0;
 
             if (isValid(x - 1, y) && isFree(x - 1, y)) {
-                findPath(x - 1, y);
-            }
-            if (isValid(x - 1, y + 1) && isFree(x - 1, y + 1)) {
-                findPath(x - 1, y + 1);
-            }
-            if (isValid(x - 1, y - 1) && isFree(x - 1, y - 1)) {
-                findPath(x - 1, y - 1);
+                //findPath(x - 1, y);
+            } else k++;
+
+            if (isValid(x, y - 1) && isFree(x, y - 1)) {
+                //findPath(x, y - 1);
+            } else k++;
+
+            if (isValid(x, y + 1) && isFree(x, y + 1)) {
+                //findPath(x, y + 1);
+            } else k++;
+
+            if (isValid(x + 1, y) && isFree(x + 1, y)) {
+                //findPath(x + 1, y);
+            } else k++;
+
+            if (k >= 0) {
+
+                if (k == 3) {
+                    StringBuilder s = new StringBuilder(labirint[y]);
+                    s.setCharAt(x, '#');
+                    labirint[y] = s.toString();
+                    return;
+                }
+
+                if (isValid(x - 1, y) && isFree(x - 1, y)) {
+                    findPath(x - 1, y);
+                }
+
+                if (isValid(x, y - 1) && isFree(x, y - 1)) {
+                    findPath(x, y - 1);
+                }
+
+                if (isValid(x, y + 1) && isFree(x, y + 1)) {
+                    findPath(x, y + 1);
+                }
+
+                if (isValid(x + 1, y) && isFree(x + 1, y)) {
+                    findPath(x + 1, y);
+                }
             }
         }
     }
