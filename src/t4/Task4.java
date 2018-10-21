@@ -5,6 +5,9 @@ public class Task4 {
     int a = 0;
 
     public void getResult() {
+
+        System.out.println("\n Task 4");
+
         printBit();
 
         System.out.println("Установка бита с номером 13 в 1");

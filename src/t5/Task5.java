@@ -5,6 +5,8 @@ public class Task5 {
 
     public void getResult() {
 
+        System.out.println("\n Task 5");
+
         for (int i = 0; i < dict.length; i++) {
             System.out.println(kill());
         }

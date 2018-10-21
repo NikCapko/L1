@@ -17,6 +17,9 @@ public class Task6 {
     };
 
     public void getResult() {
+
+        System.out.println("\n Task 6");
+
         findPath(13, 8);
     }
 
