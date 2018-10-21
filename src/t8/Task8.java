@@ -25,11 +25,31 @@ public class Task8 {
                 }
             } else {
                 if (k < arrayFirst.length) {
-                    array[i] = arrayFirst[k];
-                    k++;
+                    for (int j = 0; j <= i; j++) {
+                        if (arrayFirst[k] < array[j]) {
+                            int num = array[j];
+                            array[j] = arrayFirst[k];
+                            arrayFirst[k] = num;
+                        }
+                        if (j == i) {
+                            array[i] = arrayFirst[k];
+                            k++;
+                            break;
+                        }
+                    }
                 } else if (l < arraySecond.length) {
-                    array[i] = arraySecond[l];
-                    l++;
+                    for (int j = 0; j <= i; j++) {
+                        if (arraySecond[l] < array[j]) {
+                            int num = array[j];
+                            array[j] = arraySecond[l];
+                            arraySecond[l] = num;
+                        }
+                        if (j == i) {
+                            array[i] = arraySecond[l];
+                            l++;
+                            break;
+                        }
+                    }
                 }
             }
         }
