@@ -16,73 +16,52 @@ public class Task6 {
             "######7#############6###5######"
     };
 
+    Cell[][] labirintNew;
+
     public void getResult() {
 
         System.out.println("\n Task 6");
 
-        findPath(13, 8);
+        labirintNew = new Cell[labirint.length][labirint[0].length()];
+
+        for (int i = 0; i < labirint.length; i++) {
+            for (int j = 0; j < labirint[0].length(); j++) {
+                labirintNew[i][j] = new Cell(labirint[i].charAt(j));
+            }
+        }
+
+        findPath(8, 13);
     }
 
     private void findPath(int x, int y) {
-        if (isValid(x, y) && isFree(x, y)) {
-            if (Character.isDigit(labirint[y].charAt(x))) {
-                System.out.println(labirint[y].charAt(x));
+        if (isValid(x, y) && labirintNew[x][y].isFree) {
+            if (labirintNew[x][y].isOutput) {
+                System.out.println(labirintNew[x][y].getSymbol());
+                return;
             }
 
-            int k = 0;
+            labirintNew[x][y].isFree = false;
 
-            if (isValid(x - 1, y) && isFree(x - 1, y)) {
-                //findPath(x - 1, y);
-            } else k++;
+            if (isValid(x - 1, y) && labirintNew[x - 1][y].isFree) {
+                findPath(x - 1, y);
+            }
 
-            if (isValid(x, y - 1) && isFree(x, y - 1)) {
-                //findPath(x, y - 1);
-            } else k++;
+            if (isValid(x, y - 1) && labirintNew[x][y - 1].isFree) {
+                findPath(x, y - 1);
+            }
 
-            if (isValid(x, y + 1) && isFree(x, y + 1)) {
-                //findPath(x, y + 1);
-            } else k++;
+            if (isValid(x, y + 1) && labirintNew[x][y + 1].isFree) {
+                findPath(x, y + 1);
+            }
 
-            if (isValid(x + 1, y) && isFree(x + 1, y)) {
-                //findPath(x + 1, y);
-            } else k++;
-
-            if (k >= 0) {
-
-                if (k == 3) {
-                    StringBuilder s = new StringBuilder(labirint[y]);
-                    s.setCharAt(x, '#');
-                    labirint[y] = s.toString();
-                    return;
-                }
-
-                if (isValid(x - 1, y) && isFree(x - 1, y)) {
-                    findPath(x - 1, y);
-                }
-
-                if (isValid(x, y - 1) && isFree(x, y - 1)) {
-                    findPath(x, y - 1);
-                }
-
-                if (isValid(x, y + 1) && isFree(x, y + 1)) {
-                    findPath(x, y + 1);
-                }
-
-                if (isValid(x + 1, y) && isFree(x + 1, y)) {
-                    findPath(x + 1, y);
-                }
+            if (isValid(x + 1, y) && labirintNew[x + 1][y].isFree) {
+                findPath(x + 1, y);
             }
         }
     }
 
     private boolean isValid(int x, int y) {
-        return (x >= 0 && y >= 0 && x < labirint[0].length() && y < labirint.length);
+        return (x >= 0 && y >= 0 && x < labirintNew.length && y < labirintNew[0].length);
     }
-
-    private boolean isFree(int x, int y) {
-        return labirint[y].charAt(x) != '#';
-
-    }
-
 }
 
